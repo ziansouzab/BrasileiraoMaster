@@ -192,9 +192,11 @@ def _normalize_players(df: pd.DataFrame) -> pd.DataFrame:
 # ---------- TEAMS ----------
 
 
-def _normalize_teams(df: pd.DataFrame) -> pd.DataFrame:
-    import math
+def _read_teams_raw() -> pd.DataFrame:
+    return pd.read_csv(_csv_path("team_stats"))
 
+
+def _normalize_teams(df: pd.DataFrame) -> pd.DataFrame:
     header = df.iloc[0].copy()
     df = df.iloc[1:].reset_index(drop=True)
 
@@ -218,8 +220,7 @@ def _normalize_teams(df: pd.DataFrame) -> pd.DataFrame:
             new_cols.append(col)
         elif isinstance(label, str):
             if group == "Playing Time":
-                # MP, Starts, Min, 90s – mantemos os nomes originais
-                new_cols.append(label)
+                new_cols.append(label)  # MP, Starts, Min, 90s
             elif group == "Performance":
                 new_cols.append(perf_map.get(label, label).lower())
             elif group == "Expected":
@@ -237,13 +238,10 @@ def _normalize_teams(df: pd.DataFrame) -> pd.DataFrame:
 
     drop_cols = ["players_used", "url"]
     drop_cols += [c for c in df.columns if c.startswith("exp_")]
-    drop_cols += [c for c in df.columns if c.startswith("prog_")]
-    drop_cols += [c for c in df.columns if c.startswith("per90_")]
 
     df = df.drop(columns=[c for c in drop_cols if c in df.columns])
     df = _normalize_string_columns(df)
     return df
-
 
 
 # ---------- PUBLIC API (usada pelos endpoints FastAPI) ----------
@@ -288,19 +286,32 @@ def list_standings() -> List[Dict[str, Any]]:
 
 def get_team_detail(team_name: str) -> Dict[str, Any]:
     teams_df = _load_teams()
-    players_df = _load_players()
+    matches_df = _load_matches()
 
-    team_rows = teams_df[teams_df["team"] == team_name]
+    table_df = _compute_standings_from_matches(matches_df)
+
+    merged = teams_df.merge(table_df, on="team", how="left")
+
+    for col in ["MP", "W", "D", "L", "GF", "GA", "Pts", "GD"]:
+        if col not in merged.columns:
+            merged[col] = 0
+        merged[col] = merged[col].fillna(0).astype(int)
+
+    team_rows = merged[merged["team"] == team_name]
     if team_rows.empty:
         return {}
 
     team_data = team_rows.iloc[0].to_dict()
+
+
+    players_df = _load_players()
     players_data = players_df[players_df["team"] == team_name].to_dict(orient="records")
 
     return {
         "team": team_data,
         "players": players_data,
     }
+
 
 
 def list_matches() -> List[Dict[str, Any]]:

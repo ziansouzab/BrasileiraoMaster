@@ -9,7 +9,7 @@ function buildTeamSummary(team) {
 
   const name = team.team;
   const pts = team.Pts;
-  const mp = team.MP;
+  const mp = team.MP_x;
   const w = team.W;
   const d = team.D;
   const l = team.L;
@@ -96,7 +96,7 @@ function TeamPage() {
 
   const keyStats = [
     { label: "Pontos", value: team.Pts },
-    { label: "Jogos", value: team.MP },
+    { label: "Jogos", value: team.MP_x },
     { label: "Vitórias", value: team.W },
     { label: "Empates", value: team.D },
     { label: "Derrotas", value: team.L },
