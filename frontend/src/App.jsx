@@ -9,7 +9,7 @@ function App() {
     <div className="app-root">
       <header className="app-header">
         <div className="brand">
-          <div className="badge-gradient" />
+          <img src="/Logo-BrasileiraoMaster.png" alt="Logo Brasileirão Master" className="app-logo" />
           <div>
             <h1 className="app-title">Brasileirão Master</h1>
             <p className="app-subtitle">Seu painel avançado do Brasileirão Série A</p>

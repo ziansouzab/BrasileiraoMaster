@@ -1,16 +1,48 @@
-# React + Vite
+# Brasileirão Master – Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicação web em **React + Vite** para visualizar estatísticas do **Brasileirão Série A**.
 
-Currently, two official plugins are available:
+O frontend consome a API do backend em FastAPI (projeto `BrasileiraoMaster/backend`) e exibe:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Tabela completa do Brasileirão em cards clicáveis por time  
+- Página detalhada de cada time com resumo da temporada e estatísticas dos jogadores  
+- Lista completa de partidas com filtro por data  
+- Detalhe de cada jogo com informações da partida  
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tecnologias
 
-## Expanding the ESLint configuration
+- [React](https://react.dev/)
+- [Vite](https://vitejs.dev/)
+- [React Router DOM](https://reactrouter.com/en/main)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## Estrutura do projeto
+
+Assumindo o seguinte layout de pastas:
+
+```text
+BrasileiraoMaster/
+├── backend/
+│   └── ... (API FastAPI)
+└── frontend/
+    ├── index.html
+    ├── package.json
+    ├── vite.config.js
+    └── src/
+        ├── App.jsx
+        ├── main.jsx
+        ├── index.css
+        ├── config.js
+        ├── components/
+        │   ├── BackButton.jsx
+        │   ├── TeamCard.jsx
+        │   ├── PlayerCard.jsx
+        │   └── MatchCard.jsx
+        └── pages/
+            ├── HomePage.jsx
+            ├── TeamPage.jsx
+            ├── MatchesPage.jsx
+            └── MatchDetailsPage.jsx
