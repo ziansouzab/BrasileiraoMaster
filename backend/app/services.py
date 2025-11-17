@@ -192,11 +192,9 @@ def _normalize_players(df: pd.DataFrame) -> pd.DataFrame:
 # ---------- TEAMS ----------
 
 
-def _read_teams_raw() -> pd.DataFrame:
-    return pd.read_csv(_csv_path("team_stats"))
-
-
 def _normalize_teams(df: pd.DataFrame) -> pd.DataFrame:
+    import math
+
     header = df.iloc[0].copy()
     df = df.iloc[1:].reset_index(drop=True)
 
@@ -220,7 +218,8 @@ def _normalize_teams(df: pd.DataFrame) -> pd.DataFrame:
             new_cols.append(col)
         elif isinstance(label, str):
             if group == "Playing Time":
-                new_cols.append(label)  # MP, Starts, Min, 90s
+                # MP, Starts, Min, 90s – mantemos os nomes originais
+                new_cols.append(label)
             elif group == "Performance":
                 new_cols.append(perf_map.get(label, label).lower())
             elif group == "Expected":
@@ -238,10 +237,13 @@ def _normalize_teams(df: pd.DataFrame) -> pd.DataFrame:
 
     drop_cols = ["players_used", "url"]
     drop_cols += [c for c in df.columns if c.startswith("exp_")]
+    drop_cols += [c for c in df.columns if c.startswith("prog_")]
+    drop_cols += [c for c in df.columns if c.startswith("per90_")]
 
     df = df.drop(columns=[c for c in drop_cols if c in df.columns])
     df = _normalize_string_columns(df)
     return df
+
 
 
 # ---------- PUBLIC API (usada pelos endpoints FastAPI) ----------
