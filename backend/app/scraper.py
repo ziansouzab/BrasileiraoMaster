@@ -26,7 +26,6 @@ def get_fbref_client() -> sd.FBref:
     )
 
 
-# backend/app/scraper.py
 
 def save_df_to_local(df: pd.DataFrame, filename: str) -> Path:
     DATA_DIR.mkdir(parents=True, exist_ok=True)

@@ -27,7 +27,6 @@ def _normalize_string_columns(df: pd.DataFrame) -> pd.DataFrame:
     return df
 
 
-# ---------- MATCHES ----------
 
 
 def _read_matches_raw() -> pd.DataFrame:
@@ -106,7 +105,6 @@ def _compute_standings_from_matches(matches_df: pd.DataFrame) -> pd.DataFrame:
     return agg
 
 
-# ---------- PLAYERS ----------
 
 
 def _read_players_raw() -> pd.DataFrame:
@@ -189,7 +187,6 @@ def _normalize_players(df: pd.DataFrame) -> pd.DataFrame:
 
 
 
-# ---------- TEAMS ----------
 
 
 def _read_teams_raw() -> pd.DataFrame:
@@ -243,8 +240,6 @@ def _normalize_teams(df: pd.DataFrame) -> pd.DataFrame:
     df = _normalize_string_columns(df)
     return df
 
-
-# ---------- PUBLIC API (usada pelos endpoints FastAPI) ----------
 
 
 def _load_matches() -> pd.DataFrame:
