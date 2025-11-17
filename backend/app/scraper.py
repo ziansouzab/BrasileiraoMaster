@@ -26,11 +26,18 @@ def get_fbref_client() -> sd.FBref:
     )
 
 
+# backend/app/scraper.py
+
 def save_df_to_local(df: pd.DataFrame, filename: str) -> Path:
     DATA_DIR.mkdir(parents=True, exist_ok=True)
     path = DATA_DIR / filename
+
+    if path.exists():
+        path.unlink()  
+
     df.to_csv(path, index=False)
     return path
+
 
 
 def build_league_team_season_stats_df(fbref: sd.FBref) -> pd.DataFrame:
