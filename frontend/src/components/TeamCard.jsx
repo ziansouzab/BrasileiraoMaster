@@ -15,7 +15,7 @@ function TeamCard({ team }) {
       </div>
       <div className="team-card-body">
         <div className="stat-row">
-          <span>Pts</span>
+          <span>Pontos</span>
           <strong>{team.Pts}</strong>
         </div>
         <div className="stat-row">

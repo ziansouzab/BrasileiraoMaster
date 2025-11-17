@@ -8,8 +8,8 @@ function MatchesPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
-  const [startDate, setStartDate] = useState(""); // yyyy-mm-dd
-  const [endDate, setEndDate] = useState("");     // yyyy-mm-dd
+  const [startDate, setStartDate] = useState(""); 
+  const [endDate, setEndDate] = useState("");    
 
   useEffect(() => {
     const fetchMatches = async () => {
@@ -31,7 +31,6 @@ function MatchesPage() {
     if (!startDate && !endDate) return matches;
 
     const start = startDate ? new Date(startDate) : null;
-    // fim do dia para ficar inclusivo
     const end = endDate ? new Date(`${endDate}T23:59:59`) : null;
 
     return matches.filter((match) => {
