@@ -185,9 +185,45 @@ def _normalize_players(df: pd.DataFrame) -> pd.DataFrame:
     df = _normalize_string_columns(df)
     return df
 
+def list_players_statistics() -> Dict[str, Any]:
+    df = _load_players()
+    if df.empty:
+        return {
+            "top_goals": [],
+            "top_assists": [],
+            "top_ga": [],
+            "top_minutes": [],
+            "top_yellow": [],
+            "top_red": [],
+            "top_ga90": [],
+        }
+
+    df["goals"] = pd.to_numeric(df.get("goals"), errors="coerce").fillna(0)
+    df["assists"] = pd.to_numeric(df.get("assists"), errors="coerce").fillna(0)
+    df["goals_plus_assists"] = (
+        pd.to_numeric(df.get("goals_plus_assists"), errors="coerce")
+        .fillna(0)
+    )
+    df["minutes_played"] = pd.to_numeric(df.get("minutes_played"), errors="coerce").fillna(0)
+    df["yellow_cards"] = pd.to_numeric(df.get("yellow_cards"), errors="coerce").fillna(0)
+    df["red_cards"] = pd.to_numeric(df.get("red_cards"), errors="coerce").fillna(0)
 
 
+    def top(column: str, limit: int = 20):
+        return (
+            df.sort_values(column, ascending=False)
+              .head(limit)[["player", "team", column]]
+              .to_dict(orient="records")
+        )
 
+    return {
+        "top_goals": top("goals"),
+        "top_assists": top("assists"),
+        "top_ga": top("goals_plus_assists"),
+        "top_minutes": top("minutes_played"),
+        "top_yellow": top("yellow_cards"),
+        "top_red": top("red_cards"),
+    }
 
 def _read_teams_raw() -> pd.DataFrame:
     return pd.read_csv(_csv_path("team_stats"))

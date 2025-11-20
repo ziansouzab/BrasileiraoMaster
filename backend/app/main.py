@@ -5,7 +5,7 @@ from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 
 from .scraper import run_scraper
-from .services import list_standings, get_team_detail, list_matches
+from .services import list_standings, get_team_detail, list_matches, list_players_statistics
 
 app = FastAPI(
     title="Brasileirão Série A API",
@@ -50,3 +50,7 @@ def api_get_matches():
 def api_run_scraper():
     result = run_scraper()
     return result
+
+@app.get("/api/players/statistics")
+def api_players_statistics():
+    return list_players_statistics()

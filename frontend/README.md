@@ -8,6 +8,7 @@ O frontend consome a API do backend em FastAPI (projeto `BrasileiraoMaster/backe
 - Página detalhada de cada time com resumo da temporada e estatísticas dos jogadores  
 - Lista completa de partidas com filtro por data  
 - Detalhe de cada jogo com informações da partida  
+- Estatísticas individuais dos jogadores no campeonato - Artilheiro, Maior Assistentes, Mais Minutos Jogados, etc.
 
 ---
 
@@ -18,6 +19,9 @@ O frontend consome a API do backend em FastAPI (projeto `BrasileiraoMaster/backe
 - [React Router DOM](https://reactrouter.com/en/main)
 
 ---
+
+## Futuras Melhorias
+- Redesign do projeto visando seguir identidade visual de uma marca.
 
 ## Estrutura do projeto
 

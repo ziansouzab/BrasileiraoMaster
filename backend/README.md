@@ -25,6 +25,19 @@ Ele:
 
 ---
 
+## Instruções
+
+Para atualizar as tabelas, basta enviar uma requisição POST para o endpoint: 
+"/api/admin/run-scraper"
+
+---
+
+## Futuras Melhorias
+- Adicionar métodos de autenticação nos endpoints
+- Dockerizar a aplicação para replicação fácil em qualquer ambiente
+
+---
+
 ## Estrutura de pastas (backend)
 
 ```text
@@ -40,3 +53,5 @@ backend/
       bra_serie_a_2025_team_stats.csv
       bra_serie_a_2025_players_stats.csv
       bra_serie_a_2025_matches.csv
+
+

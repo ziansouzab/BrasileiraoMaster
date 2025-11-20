@@ -3,6 +3,7 @@ import HomePage from "./pages/HomePage.jsx";
 import TeamPage from "./pages/TeamPage.jsx";
 import MatchesPage from "./pages/MatchesPage.jsx";
 import MatchDetailsPage from "./pages/MatchDetailsPage.jsx";
+import StatisticsPage from "./pages/StatisticsPage.jsx";
 
 function App() {
   return (
@@ -33,6 +34,14 @@ function App() {
           >
             Todos os Jogos
           </NavLink>
+          <NavLink
+            to="/statistics"
+            className={({ isActive }) =>
+              "nav-link" + (isActive ? " nav-link-active" : "")
+            }
+          >
+            Estatísticas Individuais
+          </NavLink>
         </nav>
       </header>
 
@@ -42,6 +51,7 @@ function App() {
           <Route path="/teams/:teamName" element={<TeamPage />} />
           <Route path="/matches" element={<MatchesPage />} />
           <Route path="/matches/:index" element={<MatchDetailsPage />} />
+          <Route path="/statistics" element={<StatisticsPage />} />
         </Routes>
       </main>
     </div>
