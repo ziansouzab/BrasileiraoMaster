@@ -34,7 +34,7 @@ Tailwind CSS.
 
 ## Funcionalidades Principais:
 
-# Backend (API)
+### Backend (API)
 Scraper Automatizado: Coleta e normaliza dados diretamente do FBref.
 
 Armazenamento Local: Gera arquivos CSV para persistência de dados:
@@ -49,7 +49,7 @@ Cálculo de Classificação: Lógica interna para gerar a tabela de pontos, vit�
 
 Endpoints REST: Disponibiliza os dados para o consumo do Frontend.
 
-# Frontend (Interface)
+### Frontend (Interface)
 Dashboard: Tabela completa do Brasileirão com cards interativos.
 
 Visão do Time: Detalhes da temporada e estatísticas do elenco.
@@ -62,28 +62,28 @@ Leaderboards: Rankings de artilheiros, assistências e minutos jogados.
 
 ## **Como Executar**:
 
-# 1. Configurando o Backend
+### 1. Configurando o Backend
 Bash
 cd backend
-# Crie um ambiente virtual
+### Crie um ambiente virtual
 python -m venv venv
 source venv/bin/activate  # No Windows: venv\Scripts\activate
-# Instale as dependências
+### Instale as dependências
 pip install -r requirements.txt
-# Inicie o servidor
+### Inicie o servidor
 uvicorn app.main:app --reload
 Nota: Para atualizar os dados manualmente, envie um POST para /api/admin/run-scraper.
 
-# 2. Configurando o Frontend
+### 2. Configurando o Frontend
 Bash
 cd frontend
-# Instale as dependências
+### Instale as dependências
 npm install
-# Inicie o modo de desenvolvimento
+### Inicie o modo de desenvolvimento
 npm run dev
 
 
-#Arquitetura de Pastas:
+## Arquitetura de Pastas:
 
 Plaintext
 BrasileiraoMaster/
