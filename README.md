@@ -1,14 +1,17 @@
-##Brasileirão Master
+## Brasileirão Master:
+
 O Brasileirão Master é uma plataforma completa para visualização de estatísticas detalhadas do Campeonato Brasileiro Série A. O projeto utiliza web scraping automatizado para coletar dados reais de desempenho de times e jogadores, expondo-os através de uma API robusta para uma interface moderna e responsiva.
 
-##Estrutura do Projeto
+## Estrutura do Projeto:
+
 O repositório está dividido em duas partes principais:
 
 /backend: API desenvolvida em Python com FastAPI, responsável pela coleta (scraping), processamento e servimento dos dados.
 
 /frontend: Aplicação SPA desenvolvida em React + Vite para consumo e exibição dos dados.
 
-##Tecnologias Utilizadas
+## Tecnologias Utilizadas:
+
 Backend
 Python 3.11+
 
@@ -29,7 +32,8 @@ React Router DOM: Gerenciamento de rotas.
 
 Tailwind CSS.
 
-##Funcionalidades Principais
+## Funcionalidades Principais:
+
 Backend (API)
 Scraper Automatizado: Coleta e normaliza dados diretamente do FBref.
 
@@ -56,7 +60,8 @@ Página de Partida: Informações específicas sobre confrontos.
 
 Leaderboards: Rankings de artilheiros, assistências e minutos jogados.
 
-##**Como Executar**
+## **Como Executar**:
+
 #1. Configurando o Backend
 Bash
 cd backend
@@ -78,7 +83,8 @@ npm install
 npm run dev
 
 
-#Arquitetura de Pastas
+#Arquitetura de Pastas:
+
 Plaintext
 BrasileiraoMaster/
 ├── backend/                # API FastAPI
