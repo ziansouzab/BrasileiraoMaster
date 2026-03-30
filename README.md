@@ -34,7 +34,7 @@ Tailwind CSS.
 
 ## Funcionalidades Principais:
 
-Backend (API)
+# Backend (API)
 Scraper Automatizado: Coleta e normaliza dados diretamente do FBref.
 
 Armazenamento Local: Gera arquivos CSV para persistência de dados:
@@ -45,11 +45,11 @@ players_stats.csv: Dados individuais de performance.
 
 matches.csv: Resultados e detalhes das partidas.
 
-##Cálculo de Classificação: Lógica interna para gerar a tabela de pontos, vitórias e saldo de gols em tempo real.
+Cálculo de Classificação: Lógica interna para gerar a tabela de pontos, vitórias e saldo de gols em tempo real.
 
 Endpoints REST: Disponibiliza os dados para o consumo do Frontend.
 
-Frontend (Interface)
+# Frontend (Interface)
 Dashboard: Tabela completa do Brasileirão com cards interativos.
 
 Visão do Time: Detalhes da temporada e estatísticas do elenco.
@@ -62,7 +62,7 @@ Leaderboards: Rankings de artilheiros, assistências e minutos jogados.
 
 ## **Como Executar**:
 
-#1. Configurando o Backend
+# 1. Configurando o Backend
 Bash
 cd backend
 # Crie um ambiente virtual
@@ -74,7 +74,7 @@ pip install -r requirements.txt
 uvicorn app.main:app --reload
 Nota: Para atualizar os dados manualmente, envie um POST para /api/admin/run-scraper.
 
-#2. Configurando o Frontend
+# 2. Configurando o Frontend
 Bash
 cd frontend
 # Instale as dependências
@@ -99,7 +99,7 @@ BrasileiraoMaster/
     │   └── pages/          # Páginas da aplicação (Home, Team, Matches)
 
     
-#Melhorias Futuras
+## Melhorias Futuras
 [ ] Autenticação: Implementar segurança nos endpoints administrativos.
 
 [ ] Dockerização: Containerizar a aplicação para facilitar o deploy.
