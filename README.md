@@ -1,14 +1,14 @@
-Brasileirão Master
+##Brasileirão Master
 O Brasileirão Master é uma plataforma completa para visualização de estatísticas detalhadas do Campeonato Brasileiro Série A. O projeto utiliza web scraping automatizado para coletar dados reais de desempenho de times e jogadores, expondo-os através de uma API robusta para uma interface moderna e responsiva.
 
-Estrutura do Projeto
+##Estrutura do Projeto
 O repositório está dividido em duas partes principais:
 
 /backend: API desenvolvida em Python com FastAPI, responsável pela coleta (scraping), processamento e servimento dos dados.
 
 /frontend: Aplicação SPA desenvolvida em React + Vite para consumo e exibição dos dados.
 
-Tecnologias Utilizadas
+##Tecnologias Utilizadas
 Backend
 Python 3.11+
 
@@ -29,7 +29,7 @@ React Router DOM: Gerenciamento de rotas.
 
 Tailwind CSS.
 
-Funcionalidades Principais
+##Funcionalidades Principais
 Backend (API)
 Scraper Automatizado: Coleta e normaliza dados diretamente do FBref.
 
@@ -41,7 +41,7 @@ players_stats.csv: Dados individuais de performance.
 
 matches.csv: Resultados e detalhes das partidas.
 
-Cálculo de Classificação: Lógica interna para gerar a tabela de pontos, vitórias e saldo de gols em tempo real.
+##Cálculo de Classificação: Lógica interna para gerar a tabela de pontos, vitórias e saldo de gols em tempo real.
 
 Endpoints REST: Disponibiliza os dados para o consumo do Frontend.
 
@@ -56,8 +56,8 @@ Página de Partida: Informações específicas sobre confrontos.
 
 Leaderboards: Rankings de artilheiros, assistências e minutos jogados.
 
-**Como Executar**
-1. Configurando o Backend
+##**Como Executar**
+#1. Configurando o Backend
 Bash
 cd backend
 # Crie um ambiente virtual
@@ -69,7 +69,7 @@ pip install -r requirements.txt
 uvicorn app.main:app --reload
 Nota: Para atualizar os dados manualmente, envie um POST para /api/admin/run-scraper.
 
-2. Configurando o Frontend
+#2. Configurando o Frontend
 Bash
 cd frontend
 # Instale as dependências
@@ -78,7 +78,7 @@ npm install
 npm run dev
 
 
-Arquitetura de Pastas
+#Arquitetura de Pastas
 Plaintext
 BrasileiraoMaster/
 ├── backend/                # API FastAPI
@@ -93,7 +93,7 @@ BrasileiraoMaster/
     │   └── pages/          # Páginas da aplicação (Home, Team, Matches)
 
     
-Melhorias Futuras
+#Melhorias Futuras
 [ ] Autenticação: Implementar segurança nos endpoints administrativos.
 
 [ ] Dockerização: Containerizar a aplicação para facilitar o deploy.
