@@ -1,4 +1,4 @@
-## Brasileirão Master:
+# Brasileirão Master:
 
 O Brasileirão Master é uma plataforma completa para visualização de estatísticas detalhadas do Campeonato Brasileiro Série A. O projeto utiliza web scraping automatizado para coletar dados reais de desempenho de times e jogadores, expondo-os através de uma API robusta para uma interface moderna e responsiva.
 
