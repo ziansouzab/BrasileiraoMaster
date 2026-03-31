@@ -85,7 +85,7 @@ npm run dev
 
 ## Arquitetura de Pastas:
 
-Plaintext
+```Plaintext
 BrasileiraoMaster/
 ├── backend/                # API FastAPI
 │   ├── app/                # Lógica da aplicação
@@ -97,8 +97,8 @@ BrasileiraoMaster/
     ├── src/
     │   ├── components/     # Componentes reutilizáveis (Cards, Botões)
     │   └── pages/          # Páginas da aplicação (Home, Team, Matches)
+```
 
-    
 ## Melhorias Futuras
 [ ] Autenticação: Implementar segurança nos endpoints administrativos.
 
